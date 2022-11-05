@@ -1,3 +1,5 @@
+import { askGPT3 } from "./gpt3";
+
 export async function performArithmeticOp(
   op: string,
   x: number,
@@ -10,7 +12,10 @@ export async function performArithmeticOp(
       return x - y;
     case "multiplication":
       return x * y;
-    default:
-      throw new Error(`Invalid operation: ${op}`);
+    default: {
+      const prompt = `${x} ${op} ${y}`;
+      const result = await askGPT3(prompt);
+      return result;
+    }
   }
 }
