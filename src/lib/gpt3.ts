@@ -1,7 +1,5 @@
 import { Configuration, OpenAIApi } from "openai";
 
-console.log(process.env.OPENAI_API_KEY);
-
 const configuration = new Configuration({
   organization: "org-rxMbvlmCJABLuH65j4GwtVJv",
   apiKey: process.env.OPENAI_API_KEY,
